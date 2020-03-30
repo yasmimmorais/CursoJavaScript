@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução JavaScript - Condicionais</title>
+</head>
+<body>
+    <script>
+        /*function retornaSexo(sexo){
+            if (sexo === 'M'){
+                return 'Masculino';
+
+            }else if(sexo === 'F'){
+                return 'Feminino';
+
+            }else {
+                return 'Outro';
+            }
+        }*/
+        
+
+        //Para verificar igualdade dentro de uma mesma variável podemos utilizar "switch case"
+        function retornaSexo(sexo){
+            switch (sexo){
+                case 'M':
+                    return 'Masculino';
+                case 'F':
+                    return 'Feminino';
+                //se não for nenhum dos cases...
+                default:
+                    return 'Outro';
+            }
+        }
+        var resultado = retornaSexo('F');
+        console.log(resultado);       
+    </script>
+
+    <script>
+        //Principais operadores lógicos
+        //AND (&&), OR(||), NOT(!==)
+
+        var sexo = 'M', idade = 23;
+
+        if (sexo === 'M' && idade >=18){
+            console.log('YES!');
+        }
+    </script>
+
+    <script>
+        //utilizando CONDIÇÃO TERNÁRIA para substituir o IF ELSE simples
+
+        var sexo;
+
+        var retorno = (sexo === 'F') ? 'Masculino' : 'Feminino';
+        console.log(retorno);
+    </script>
+</body>
+</html>
