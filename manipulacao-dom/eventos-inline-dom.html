@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introdução JavaScript - Eventos inline</title>
+    <title>Manipulando a DOM - Eventos inline</title>
 </head>
 <body>
 
     <div id=app>
-        <button onclick="mostraAlerta()">Me pressione</button>
+        <input type="text" name="nome" id="nome">
+        <button class="botao">Adicionar</button>
     </div>
 
     <script>
         //A DOM é a árvore de elementos dentro do html e é isso que o 
         //javascript pode manipular
-        function mostraAlerta(){
-            alert('Botão foi clicado!');
-        }
+        var inputElement = document.querySelector('input[name=nome]')
+        var btnElement = document.querySelector('button.botao');
 
+        btnElement.onclick = function(){
+            var text = inputElement.value;
+            alert(text);
+        }
+        //console.log(inputElement);
     </script>
 </body>
 </html>

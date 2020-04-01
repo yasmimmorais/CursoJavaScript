@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando a DOM - Exercícios</title>
+</head>
+<body>
+    <div></div>
+
+    <button id="create">Criar bloco</button>
+    <div id="box"></div>
+
+    <ul></ul>
+
+    <input type="text" id="nome">
+    <button onClick="adicionar()">Adicionar</button>
+
+    <script>
+
+        var btnElement = document.getElementById('create');
+        var boxesElement = document.getElementById('box');
+
+        //GERAR BLOCOS AO CLICAR
+        btnElement.onclick = function(){
+            var boxCreate = document.createElement('div');
+            boxCreate.style.height = '100px';
+            boxCreate.style.width = '100px'
+            boxCreate.style.backgroundColor = 'red';
+            boxCreate.style.margin = '20px';
+
+            boxCreate.onmouseover = function() {
+                boxCreate.style.backgroundColor = getRandomColor();
+            };
+            boxesElement.appendChild(boxCreate);
+        }
+
+        //MUDAR COR DO BLOCO AO PASSAR O MOUSE
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        var newColor = getRandomColor();
+
+        //LISTAR NOMES NUMA LISTA DE ITENS
+        var names = [
+        "Yasmim",
+        "Daniel",
+        "Luck",
+        "Angel"
+      ];
+      //selecionando elemento UL
+      var listElement = document.querySelector("ul");
+      //pegando o input text element
+      var inputNewName = document.getElementById("nome");
+
+      //percorrendo nome na lista de nomes
+      for (name of names) {
+        //chamando função que insere o nome
+        addItemName(name);
+      }
+
+      //Adicionando item ao elemento li filho do elemento ul
+      function addItemName(name) {
+        console.log("TCL: addItemName -> name", name);
+        //pegando elemento li filho de ul
+        var liElementChild = document.createElement("li");
+
+        //criando o texto para inserir no li
+        var textoDoFilho = document.createTextNode(name);
+
+        //inserindo texto ao elemento li
+        liElementChild.appendChild(textoDoFilho);
+
+        //inserindo o li ao elemento ul
+        listElement.appendChild(liElementChild);
+      }
+      function adicionar() {
+        addItemName(inputNewName.value);
+
+        inputNewName.value = "";
+      }
+
+    </script>
+</body>
+</html>

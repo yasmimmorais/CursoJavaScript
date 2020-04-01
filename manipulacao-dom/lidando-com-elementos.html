@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando a DOM - Eventos inline</title>
+</head>
+<body>
+    <div class="box">
+        <div id=app>
+            <input type="text" id="nome">
+        </div>
+    </div>
+
+    <script>
+        //lidando com elementos
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', 'https://yasmimmorais.com');
+
+        var textElement = document.createTextNode('Acessar site da designer Yasmim Morais');
+        linkElement.appendChild(textElement);
+
+        var containerElement = document.querySelector('#app');
+        containerElement.appendChild(linkElement);
+
+        var inputElement = document.querySelector('#nome');
+        containerElement.removeChild(inputElement);
+        
+
+        //controlando estilizações
+        var boxElement = document.querySelector('.box');
+        boxElement.style.width = '100%'; //OBS: no curso, mostra q pode colocar sem aspas e sem "px", mas no meu caso só funcionou assim.
+        boxElement.style.height = '100px';
+        boxElement.style.backgroundColor = 'red';
+    </script>
+</body>
+</html>
